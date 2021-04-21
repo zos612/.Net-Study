@@ -14,6 +14,8 @@ namespace EF6_TestApplication
         public Form1()
         {
             InitializeComponent();
+
+            
         }
     }
 }
