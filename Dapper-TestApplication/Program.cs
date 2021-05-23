@@ -18,20 +18,30 @@ namespace Dapper_TestApplication
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            //BonusSkins.Register();
-            //Application.Run(new Form1());
+            BonusSkins.Register();
+            Application.Run(new Form1());
 
-            using (var connection = new MySqlConnection("server=106.252.242.26;port=3309;database=rmsdb;uid=heatmaster;password=rpn123!!##")
-            {
-                
-                //var guid = Guid.NewGuid();
-                //var dog = connection.Query("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
-            }
+            //using (var connection = new MySqlConnection("server=106.252.242.26;port=3309;database=rmsdb;uid=heatmaster;password=rpn123!!##")
+            //{
 
-                
+            //    //var guid = Guid.NewGuid();
+            //    //var dog = connection.Query("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
+            //}
+            //test t = new test();
+
+            //var db = t.connectionFactory();
+
+            ////var emp = Dapper.SqlMapper.Query<Emp>(db, "select * from tb_emp");
+            //Emp emp = new Emp()
+            //{
+            //    user_seq = 1
+            //};
+
+            //var result = Dapper.SqlMapper.Query<Emp>(db, "select user_seq = @user_seq", emp);
+
 
         }
 
@@ -49,6 +59,14 @@ namespace Dapper_TestApplication
 
             connection.Open();
 
+            return connection;
+        }
+
+        public MySqlConnection connectionFactory()
+        {
+            string ConnString = "server=106.252.242.26;port=3309;database=rmsdb;uid=heatmaster;password=rpn123!!##";
+            var connection = new MySqlConnection(ConnString);
+            connection.Open();
             return connection;
         }
     }

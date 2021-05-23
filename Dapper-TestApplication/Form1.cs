@@ -14,6 +14,16 @@ namespace Dapper_TestApplication
         public Form1()
         {
             InitializeComponent();
+
+
+            test t = new test();
+
+            var db = t.connectionFactory();
+
+            //var emp = Dapper.SqlMapper.Query<Emp>(db, "select * from tb_emp");
+            var emp2 = Dapper.SqlMapper.Query<Emp>(db, "select * from tb_emp").ToList<Emp>();
+
+            gridControl1.DataSource = emp2;
         }
     }
 }
